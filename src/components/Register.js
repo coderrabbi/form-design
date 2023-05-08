@@ -24,9 +24,7 @@ const Register = () => {
             <input
               type="text"
               className={`${
-                fName?.length > 1
-                  ? "focus:border-[#66afe9]"
-                  : "focus:border-red-500"
+                fName?.length > 1 ? "blueBox" : "redBox"
               } md:w-[250px] h-[2.75em] text-[.89em]  px-[0.375em]  py-[0.75em] focus:boxShadow border border-black outline-none `}
               onChange={(e) => setFnmae(e.target.value)}
             />
@@ -40,9 +38,7 @@ const Register = () => {
               type="text"
               value={lName}
               className={`${
-                lName?.length > 1
-                  ? "focus:border-[#66afe9]"
-                  : "focus:border-red-500"
+                lName?.length > 1 ? "blueBox" : "redBox"
               } md:w-[250px] h-[2.75em] text-[.89em]  px-[0.375em]  py-[0.75em] focus:boxShadow border border-black outline-none `}
               onChange={(e) => setLname(e.target.value)}
             />
@@ -55,9 +51,7 @@ const Register = () => {
             <input
               type="text"
               className={`${
-                email?.length > 1
-                  ? "focus:border-[#66afe9]"
-                  : "focus:border-red-500"
+                email?.length > 1 ? "blueBox" : "redBox"
               } md:w-[250px] h-[2.75em] text-[.89em]  px-[0.375em]  py-[0.75em] focus:boxShadow border border-black outline-none `}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -89,9 +83,7 @@ const Register = () => {
             <input
               type={`${passShow ? "text" : "password"}`}
               className={`${
-                password?.length > 7
-                  ? "focus:border-[#66afe9]"
-                  : "focus:border-red-500"
+                password?.length > 7 ? "blueBox" : "redBox"
               } md:w-[250px] h-[2.75em] text-[.89em]  px-[0.375em]  py-[0.75em] focus:boxShadow border border-black outline-none `}
               onChange={(e) => setPassword(e.target.value)}
               autoComplete="off"
