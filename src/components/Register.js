@@ -46,7 +46,7 @@ const Register = () => {
               Password<span className="text-red-500">*</span>{" "}
             </label>
             <input
-              type="text"
+              type="password"
               className="focus:border-[#66afe9] md:w-[250px] h-[2.75em] text-[.89em]  px-[0.375em] py-[0.75em] focus:boxShadow border border-black outline-none "
             />
           </div>
