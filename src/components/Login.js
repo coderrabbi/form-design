@@ -20,7 +20,7 @@ const Login = () => {
           <div className="flex flex-col">
             <label className="text-[14px] leading-[20px]"> Password</label>
             <input
-              type="text"
+              type="password"
               className="focus:border-[#66afe9]  h-[2.75em] text-[.89em]  px-[0.375em] py-[0.75em] focus:boxShadow border border-black outline-none "
             />
           </div>
