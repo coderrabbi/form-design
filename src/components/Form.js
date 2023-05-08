@@ -5,7 +5,7 @@ import Register from "./Register";
 const Form = () => {
   return (
     <div>
-      <h1 className="text-[32px] leading-[35px] py-3 text-[#333]">
+      <h1 className="text-[32px] leading-[35px] py-3 font-[Helvetica] font-medium text-[#333]">
         Login / Register
       </h1>
       <div className="flex md:flex-row flex-col gap-4 ">

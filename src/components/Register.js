@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Register = () => {
+  const [fName, setFnmae] = useState(null);
+  const [lName, setLname] = useState("");
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
+  const [passShow, setPassShow] = useState(false);
+
   return (
     <div className="md:pl-[35px] pl-0">
       <div className="border-b">
@@ -17,7 +23,12 @@ const Register = () => {
             </label>
             <input
               type="text"
-              className="focus:border-[#66afe9] md:w-[250px] h-[2.75em] text-[.89em]  px-[0.375em] py-[0.75em] focus:boxShadow border border-black outline-none "
+              className={`${
+                fName?.length > 1
+                  ? "focus:border-[#66afe9]"
+                  : "focus:border-red-500"
+              } md:w-[250px] h-[2.75em] text-[.89em]  px-[0.375em]  py-[0.75em] focus:boxShadow border border-black outline-none `}
+              onChange={(e) => setFnmae(e.target.value)}
             />
           </div>
           <div className="flex justify-between md:flex-row flex-col">
@@ -27,7 +38,13 @@ const Register = () => {
             </label>
             <input
               type="text"
-              className="focus:border-[#66afe9] md:w-[250px] h-[2.75em] text-[.89em]  px-[0.375em] py-[0.75em] focus:boxShadow border border-black outline-none "
+              value={lName}
+              className={`${
+                lName?.length > 1
+                  ? "focus:border-[#66afe9]"
+                  : "focus:border-red-500"
+              } md:w-[250px] h-[2.75em] text-[.89em]  px-[0.375em]  py-[0.75em] focus:boxShadow border border-black outline-none `}
+              onChange={(e) => setLname(e.target.value)}
             />
           </div>
           <div className="flex justify-between md:flex-row flex-col">
@@ -37,19 +54,54 @@ const Register = () => {
             </label>
             <input
               type="text"
-              className="focus:border-[#66afe9] md:w-[250px] h-[2.75em] text-[.89em]  px-[0.375em] py-[0.75em] focus:boxShadow border border-black outline-none "
+              className={`${
+                email?.length > 1
+                  ? "focus:border-[#66afe9]"
+                  : "focus:border-red-500"
+              } md:w-[250px] h-[2.75em] text-[.89em]  px-[0.375em]  py-[0.75em] focus:boxShadow border border-black outline-none `}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="flex justify-between md:flex-row flex-col">
-            <label className="text-[14px] leading-[20px]">
-              {" "}
-              Password<span className="text-red-500">*</span>{" "}
-            </label>
+            <div className="flex justify-between ">
+              <label className=" cursor-pointer text-[14px] leading-[20px]">
+                {" "}
+                Password<span className="text-red-500">*</span>{" "}
+              </label>
+              <div className="md:hidden bolck">
+                {passShow ? (
+                  <span
+                    onClick={() => setPassShow(!passShow)}
+                    className="text-[12px] text-[#c30000] cursor-pointer   leading-[17px]"
+                  >
+                    (Hide Password)
+                  </span>
+                ) : (
+                  <span
+                    onClick={() => setPassShow(!passShow)}
+                    className="text-[12px] text-[#c30000] cursor-pointer  leading-[17px]"
+                  >
+                    (Show Password)
+                  </span>
+                )}
+              </div>
+            </div>
             <input
-              type="password"
-              className="focus:border-[#66afe9] md:w-[250px] h-[2.75em] text-[.89em]  px-[0.375em] py-[0.75em] focus:boxShadow border border-black outline-none "
+              type={`${passShow ? "text" : "password"}`}
+              className={`${
+                password?.length > 7
+                  ? "focus:border-[#66afe9]"
+                  : "focus:border-red-500"
+              } md:w-[250px] h-[2.75em] text-[.89em]  px-[0.375em]  py-[0.75em] focus:boxShadow border border-black outline-none `}
+              onChange={(e) => setPassword(e.target.value)}
+              autoComplete="off"
             />
           </div>
+          {password?.length <= 7 && (
+            <span className="text-[#c30000] text-right text-[13px] leading-[18px] ">
+              Your password must be at least 8 characters long
+            </span>
+          )}
           <p className="text-[16px] leading-[23px] mt-3">
             Be the first to find out about all of our great deals and specials.
             We will send you coupons so you can get discounts on our already
